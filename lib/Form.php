@@ -588,7 +588,7 @@ class Form {
 				}
 				elseif ($elem == '<captcha>') {
 					//if (!empty($CFG->google_recaptch_api_key) && !empty($CFG->google_recaptch_api_secret)) {
-						echo '<li class="'.$alt.'"><div class="g-recaptcha" data-sitekey="6LfofToUAAAAAM_YAubk0r6Y4w40QujjAHdXr6iC"></div></li>';
+						echo '<li class="'.$alt.'"><div class="g-recaptcha" data-sitekey="' . $CFG->google_recaptch_api_secret . '"></div></li>';
 					//}
 					/*else {
 						echo "
@@ -844,7 +844,7 @@ class Form {
 			return false;
 		}
 		
-		$secretKey = "6LfofToUAAAAAIUKReO7AqxXicFD8p6CKgX4Sb6l";
+		$secretKey = $CFG->google_recaptch_api_secret;
 		$ip = API::getUserIp();
 		
 		$ch = curl_init('https://www.google.com/recaptcha/api/siteverify?secret='.$secretKey.'&response='.$_REQUEST['g-recaptcha-response'].'&remoteip='.$ip);
